@@ -30,9 +30,10 @@ class AvatarWidget extends StatelessWidget {
                         ),
                       ),
                   Align(
-                    alignment: Alignment.bottomRight,
-                    child: InkWell(
-                      onTap: () async {
+                    alignment: Alignment.center,
+
+                    child: IconButton(
+                      onPressed: () async {
                         final file = await FilePicker.platform.pickFiles(
                           allowMultiple: false,
                         );
@@ -40,10 +41,12 @@ class AvatarWidget extends StatelessWidget {
                           userProvider.updateAvatar(file.paths.first!);
                         }
                       },
-                      child: const CircleAvatar(
-                        radius: 20,
-                        backgroundColor: Colors.grey,
-                        child: Icon(Icons.edit, color: Colors.white),
+                      icon: const Icon(
+                        Icons.add_a_photo_outlined,
+                        color: Colors.white,
+                      ),
+                      style: IconButton.styleFrom(
+                        backgroundColor: Color.fromRGBO(0, 0, 0, 100),
                       ),
                     ),
                   ),
